@@ -8,6 +8,8 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -136,11 +138,63 @@
                             <outlet property="delegate" destination="GTd-Yd-PzQ" id="TLJ-eV-83D"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="목록" id="xYH-n7-rV4"/>
+                    <navigationItem key="navigationItem" title="목록" id="xYH-n7-rV4">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="rEt-qG-iLc">
+                            <connections>
+                                <segue destination="AKA-Vx-gph" kind="show" id="Tda-52-9Px"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gue-p9-4ge" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="677.60000000000002" y="89.505247376311857"/>
+        </scene>
+        <!--메모 작성-->
+        <scene sceneID="7gz-cc-PNZ">
+            <objects>
+                <viewController id="AKA-Vx-gph" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="R5X-bb-uKw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nhp-70-Tla">
+                                <rect key="frame" x="0.0" y="74" width="375" height="250"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="8VF-Sf-ZmA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qd6-lD-XSf">
+                                <rect key="frame" x="0.0" y="339" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="c0x-39-bCh"/>
+                                    <constraint firstAttribute="height" constant="250" id="r9t-qe-jh9"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qd6-lD-XSf" firstAttribute="top" secondItem="nhp-70-Tla" secondAttribute="bottom" constant="15" id="Hxg-cH-mSs"/>
+                            <constraint firstItem="nhp-70-Tla" firstAttribute="top" secondItem="FlQ-w7-PTb" secondAttribute="top" constant="10" id="JAs-aZ-IB8"/>
+                            <constraint firstItem="nhp-70-Tla" firstAttribute="leading" secondItem="FlQ-w7-PTb" secondAttribute="leading" id="MMu-HR-SCt"/>
+                            <constraint firstItem="qd6-lD-XSf" firstAttribute="leading" secondItem="FlQ-w7-PTb" secondAttribute="leading" id="YaM-67-n8O"/>
+                            <constraint firstItem="nhp-70-Tla" firstAttribute="trailing" secondItem="FlQ-w7-PTb" secondAttribute="trailing" id="oE2-7p-398"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FlQ-w7-PTb"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="메모 작성" id="5OU-i0-L0z">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="camera" id="gDS-Bz-zaE"/>
+                            <barButtonItem title="저장" id="T7I-ui-WjM"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="86W-GY-DkU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1388" y="89.505247376311857"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mEJ-1w-e8x">
