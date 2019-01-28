@@ -16,7 +16,7 @@
         <!--목록-->
         <scene sceneID="tnH-xN-YK0">
             <objects>
-                <tableViewController id="GTd-Yd-PzQ" sceneMemberID="viewController">
+                <tableViewController id="GTd-Yd-PzQ" customClass="MemoListVC" customModule="MyMemory" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="eGJ-hB-0Lr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,7 +27,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="memoCell" rowHeight="83" id="mzc-5D-mRz">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="memoCell" rowHeight="83" id="mzc-5D-mRz" customClass="MemoCell" customModule="MyMemory" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="83"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mzc-5D-mRz" id="7V5-HT-7My">
@@ -75,7 +75,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="memoCellWithImage" rowHeight="77" id="I3l-cN-dA6">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="memoCellWithImage" rowHeight="77" id="I3l-cN-dA6" customClass="MemoCell" customModule="MyMemory" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="111" width="375" height="77"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I3l-cN-dA6" id="9tC-al-X9s">
@@ -156,7 +156,7 @@
         <!--Title-->
         <scene sceneID="6ld-lZ-uVU">
             <objects>
-                <viewController id="fk5-2Z-fYy" sceneMemberID="viewController">
+                <viewController id="fk5-2Z-fYy" customClass="MemoReadVC" customModule="MyMemory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MAe-D5-7zK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -206,7 +206,7 @@
         <!--메모 작성-->
         <scene sceneID="7gz-cc-PNZ">
             <objects>
-                <viewController id="AKA-Vx-gph" sceneMemberID="viewController">
+                <viewController id="AKA-Vx-gph" customClass="MemoFormVC" customModule="MyMemory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="R5X-bb-uKw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -240,10 +240,22 @@
                     </view>
                     <navigationItem key="navigationItem" title="메모 작성" id="5OU-i0-L0z">
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="camera" id="gDS-Bz-zaE"/>
-                            <barButtonItem title="저장" id="T7I-ui-WjM"/>
+                            <barButtonItem systemItem="camera" id="gDS-Bz-zaE">
+                                <connections>
+                                    <action selector="pick:" destination="AKA-Vx-gph" id="1Dw-qQ-1ie"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="저장" id="T7I-ui-WjM">
+                                <connections>
+                                    <action selector="save:" destination="AKA-Vx-gph" id="naL-AN-Gmc"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="contents" destination="nhp-70-Tla" id="UKm-cH-hLe"/>
+                        <outlet property="preview" destination="qd6-lD-XSf" id="Igb-Wk-cvK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="86W-GY-DkU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
